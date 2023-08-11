@@ -1,15 +1,9 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
-  }
+  "index": "Home",
+  "lua-beginners": "Tipps for lua beginner",
+  "esx": "ESX-Coding",
+  "qb": "QB-Coding",
+  "nui": "NUI-Coding.",
+  "lua": "Lua-Coding Tips",
+  "nativeui": "NativeUI-Wiki"
 }
