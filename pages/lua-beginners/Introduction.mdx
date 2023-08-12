@@ -1,13 +1,262 @@
-Hey there, Lua enthusiasts! I'm Ludaro, and I'm here to help you learn Lua programming specifically for Fivem. This wiki is dedicated to providing simple tips and guidance for beginners like you who are interested in mastering Lua.
+# Einführung in die Grundlagen und Verwendung von Lua
 
-Lua is a beginner-friendly programming language, but it's not the only language used in Fivem. You can also code in C# and JS, which are more complex. Don't worry though, I'll cover those languages in this wiki as well, if I find the time for it ;)
+Diese Seite bietet eine Einführung in grundlegende Lua-Konzepte und deren praktische Anwendung. Lua ist eine leistungsstarke Programmiersprache, die häufig in FiveM-Skripting verwendet wird, um dynamische und interaktive Erfahrungen zu schaffen. Das Verständnis dieser grundlegenden Konzepte ist unerlässlich, um Lua effektiv in euren Skripten zu nutzen.
 
-When it comes to learning Lua, I encourage you to approach it with passion, not just out of necessity. Feel free to explore different learning methods and find what works best for you. Remember, learning Lua should be a journey that you enjoy and find fulfilling.
+## Lokale Variablen
 
-To start off, it's important to have a clear reason for learning Lua and how you plan to utilize your scripts. Think about what makes your scripts special and what you want to achieve with them. Additionally, consider if you want to work with NUIs (Native UI) and if so, start by learning Lua first, then move on to JS, HTML, and CSS.
+In Lua werden lokale Variablen verwendet, um Daten in einem bestimmten Gültigkeitsbereich zu speichern und zu manipulieren. Sie ermöglichen es, Werte Variablen zuzuweisen und später im Code darauf zu verweisen. Hier sind einige Beispiele für lokale Variablen:
 
-If you prefer learning Lua with a tutor, I highly recommend checking out the [MyScripts-Lua-Learning Playlist](https://www.youtube.com/playlist?list=PLCZL-wemJPHY5JG4kqcOX6TYHj0iCeT_I) (German language, but subtitles are available). If you prefer a more wiki-style approach, then join me on this exciting journey and read everything I've compiled on this topic!
+```lua
+local spielerName = "John"
+local spielerAlter = 25
+```
 
-Before diving into Lua, it's essential to have some basic knowledge. For example, "--" is used to comment out code, meaning the server will ignore those lines. It's commonly used to write notes or temporarily disable a function that isn't working correctly. These comments are meant for your eyes only and won't affect the code execution.
+Im obigen Codeausschnitt wird `spielerName` der Wert "John" zugewiesen und `spielerAlter` der Wert 25. Diese Variablen können im gesamten Skript verwendet werden, um verschiedene Operationen durchzuführen und temporäre oder dauerhafte Daten zu speichern.
 
-Let's get started on your Lua programming adventure! Feel free to explore the rest of the wiki and enjoy learning Lua for Fivem.
+## Datentypen
+
+Lua unterstützt verschiedene Datentypen, die bestimmen, wie Werte gespeichert und manipuliert werden. Die häufigsten Datentypen in Lua sind:
+
+- **Strings**: Strings repräsentieren Zeichenfolgen von Zeichen, die in Anführungszeichen eingeschlossen sind. Sie werden verwendet, um Textdaten zu speichern und zu manipulieren. Hier ist ein Beispiel:
+
+  ```lua
+  local nachricht = "Hallo, Lua!"
+  ```
+
+- **Zahlen**: Zahlen repräsentieren numerische Werte, einschließlich Ganzzahlen und Gleitkommazahlen. Sie werden für mathematische Berechnungen verwendet. Hier ist ein Beispiel:
+
+  ```lua
+  local anzahl = 10
+  local pi = 3.14
+  ```
+
+- **Booleans**: Booleans repräsentieren logische Werte und können nur `true` oder `false` sein. Sie werden in bedingten Anweisungen und logischen Operationen verwendet. Hier ist ein Beispiel:
+
+  ```lua
+  local istBereit = true
+  local istSpielBeendet = false
+  ```
+
+- **Tabellen**: Tabellen sind die Hauptdatenstruktur von Lua und ermöglichen es, komplexe Daten zu speichern und zu organisieren. Sie können mehrere Werte aufnehmen und sie mit Schlüsseln verknüpfen. Tabellen können verwendet werden, um Arrays, Wörterbücher und Objekte darzustellen. Hier ist ein Beispiel:
+
+  ```lua
+  local spieler = {
+    name = "John",
+    level = 5,
+    gesundheit = 100,
+  }
+  ```
+
+- **Funktionen**: Funktionen sind Blöcke von wiederverwendbarem Code, die aufgerufen und ausgeführt werden können. Sie sind wesentlich für die Organisation und Strukturierung der Logik eures Skripts. Hier ist ein Beispiel:
+
+  ```lua
+  local function gruessSpieler(name)
+    print("Hallo, " .. name .. "!")
+  end
+
+  gruessSpieler("John") -- Ausgabe: Hallo, John!
+  ```
+
+Diese Datentypen bilden die Grundbausteine für die Erstellung dynamischer und interaktiver Skripte in Lua.
+
+## Steuerungsfluss
+
+Steuerungsflussanweisungen ermöglichen es, die Ausführung eures Skripts basierend auf bestimmten Bedingungen zu steuern. Lua unterstützt bedingte Anweisungen und Schleifen.
+
+- **Bedingte Anweisungen**: Bedingte Anweisungen werden verwendet, um unterschiedliche Aktionen basierend auf spezifischen Bedingungen auszuführen. Die häufigsten bedingten Anweisungen sind `if`, `else` und `elseif`. Hier ist ein Beispiel:
+
+  ```lua
+  local temperatur = 25
+
+  if temperatur > 30 then
+    print("Es ist heiß!")
+  elseif temperatur > 20 then
+    print("Es ist warm.")
+  else
+    print("Es ist kühl.")
+  end
+  ```
+
+- **Schleifen**: Schleifen werden verwendet, um einen Satz von Anweisungen mehrfach auszuführen. Lua bietet verschiedene Arten von Schleifen, einschließlich `while` und `for`. Hier ist ein Beispiel für eine `while`-Schleife:
+
+  ```lua
+  local herunterzählen = 10
+
+  while herunterzählen > 0 do
+    print(herunterzählen)
+    herunterzählen = herunterzählen - 1
+  end
+  ```
+
+Die Steuerungsflussanweisungen von Lua ermöglichen es euch, dynamische und flexible Skripte zu erstellen, die auf unterschiedliche Bedingungen reagieren und über Daten iterieren können.
+
+## Funktionen und Module
+
+Funktionen in Lua sind Blöcke von wiederverwendbarem Code, die aufgerufen und ausgeführt werden können. Sie sind wesentlich für die Organisation und Strukturierung der Logik eures Skripts. Hier ist ein Beispiel für eine Funktion, die das Quadrat einer Zahl berechnet:
+
+```lua
+local function berechneQuadrat(zahl)
+  return zahl * zahl
+end
+
+local ergebnis = berechneQuadrat(5)
+print(ergebnis) -- Ausgabe: 25
+```
+
+Lua unterstützt auch Module, die Sammlungen von verwandten Funktionen und Variablen sind, die in mehreren Skripten verwendet werden können. Module helfen dabei, den Code zu organisieren und die Wiederverwendbarkeit zu fördern. Hier ist ein Beispiel für ein Modul:
+
+```lua
+-- Datei: mathUtils.lua
+lokale mathUtils = {}
+
+function mathUtils.berechneQuadrat(zahl)
+  return zahl * zahl
+end
+
+return mathUtils
+```
+
+In einem anderen Skript könnt ihr die Funktionen aus dem Modul folgendermaßen importieren und verwenden:
+
+```lua
+lokale mathUtils = require("mathUtils")
+lokales ergebnis = mathUtils.berechneQuadrat(5)
+print(ergebnis) -- Ausgabe: 25
+```
+
+Die Verwendung von Funktionen und Modulen ermöglicht es euch, modularen und wiederverwendbaren Code zu erstellen, was die Codeorganisation und Wartbarkeit verbessert.
+
+## Threads
+
+In FiveM bezieht sich ein Thread auf eine Funktion, die mit `Citizen.CreateThread` erstellt wird. Ein Thread wird in regelmäßigen Abständen wiederholt ausgeführt und wird häufig für Aufgaben wie die Überprüfung, ob sich ein Spieler in einer bestimmten Entfernung befindet, verwendet
+
+. Es ist jedoch wichtig, Threads vorsichtig zu verwenden, da unsachgemäße Verwendung in Verbindung mit anderen threadbasierten Operationen zu Serverabstürzen führen kann.
+
+Einige Operationen müssen alle Millisekunden ausgeführt werden, aber das ständige Überprüfen bestimmter Bedingungen mit dieser Frequenz kann das Skript verlangsamen. Stattdessen könnt ihr das Intervall mit `Citizen.Wait` festlegen, um die Ausführung des Threads anzuhalten. Zum Beispiel:
+
+```lua
+Citizen.CreateThread(function()
+  while true do
+    Citizen.Wait(5000) -- Warten für 5000 Millisekunden (5 Sekunden)
+    print("Heyo")
+  end
+end)
+```
+
+Der obige Code gibt alle 5 Sekunden "Heyo" aus.
+
+## NUI und NativeUI
+
+- NUI (Natural User Interface): NUI bezieht sich auf in Fivem-Skripte eingebettete HTML-Websites, wie zum Beispiel eine Inventarschnittstelle. Um mit NUI zu arbeiten, benötigt ihr Kenntnisse in CSS, HTML und grundlegendem JavaScript.
+
+- NativeUI: NativeUI ist eine integrierte Benutzeroberfläche in FiveM, die mit Lua gesteuert werden kann.
+
+## Server-/Client-Events
+
+Server-/Client-Events ähneln Funktionen, können aber in mehreren Skripten oder Lua-Dateien verwendet werden. Sie ermöglichen die Kommunikation zwischen dem Server und den Clients.
+
+Beispielsweise möchten wir möglicherweise ein Befehl (`/test`) registrieren, der auf der Serverseite etwas ausführt und eine Nachricht in der Client-Konsole ausgibt. Dies können wir mit der Funktion `RegisterCommand` erreichen:
+
+```lua
+RegisterCommand('test', function(source, args, rawCommand)
+  print("Hey, ich bin in der Client-Konsole!")
+  TriggerServerEvent("thisisaserverevent", args[0])
+end)
+```
+
+Der obige Code registriert den Befehl `test` und definiert die Aktionen, die ausgeführt werden sollen, wenn er ausgelöst wird. Er gibt eine Nachricht in der Client-Konsole aus und löst ein Server-Event mit dem Namen `thisisaserverevent` und dem Argument `args[0]` aus.
+
+Weitere Informationen zu Serverfunktionen findet ihr in der [FiveM-Skripting-Referenz](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/server-functions/).
+
+## Callbacks
+
+Callbacks sind eine Möglichkeit, Daten zwischen dem Server und dem Client auszutauschen. Ein häufig verwendetes Callback-System ist das ESX-Callback-System. Es ermöglicht es euch, Daten zwischen dem Server und dem Client in einer einzigen Funktion zu senden und zu empfangen. Hier ist ein Beispiel unter Verwendung des ESX-Callback-Systems:
+
+In client.lua:
+```lua
+ESX.TriggerServerCallback("NameDeinesTriggers", function(onlineSpieler, meineEigeneID)
+  print(onlineSpieler .. " sind online")
+  lokale meineEigeneID = GetPlayerServerId(PlayerId()) -- Eigene Spieler-ID abrufen
+end, meineEigeneID)
+```
+
+In server.lua:
+```lua
+ESX.RegisterServerCallback('NameDeinesTriggers', function(meineEigeneID, cb)
+  lokale onlineSpieler = 0
+  for _, spielerId in ipairs(GetPlayers()) do
+    onlineSpieler = onlineSpieler + 1
+  end
+
+  print("Spieler, der diese Funktion verwendet hat: " .. meineEigeneID)
+  cb(onlineSpieler)
+end)
+```
+
+Der obige Code zeigt, wie ihr die Anzahl der online Spieler abrufen und auf der Client-Seite ausgeben könnt. Außerdem sendet er die Spieler-ID des Clients zurück an den Server.
+
+# Erstellen und Organisieren eines FiveM-Skripts
+
+Um ein Skript in FiveM effektiv zu verwenden, ist es wichtig zu verstehen, wie Skripte strukturiert und organisiert sind.
+
+## Skriptkomponenten: Server und Client
+
+FiveM-Skripte bestehen aus zwei Hauptkomponenten: der Serverseite und der Clientseite. Diese Komponenten kommunizieren miteinander, um ein synchronisiertes und interaktives Erlebnis zu schaffen.
+
+- **Serverseite**: Die Serverseite des Skripts konzentriert sich auf die Verwaltung von serverbezogenen Aufgaben wie Spieler-Synchronisierung und Datenbankoperationen. Sie gewährleistet den reibungslosen Ablauf des Servers und behandelt wichtige Operationen, die das Spielerlebnis beeinflussen.
+
+- **Clientseite**: Die Clientseite des Skripts ist für die Verwaltung von spielbezogenen Funktionalitäten verantwortlich. Sie interagiert mit der Spielumgebung, spawnt Fahrzeuge, ändert Wetterbedingungen und führt andere klientseitige Aktionen aus. Die Clientseite beantragt die Erlaubnis von der Serverseite für bestimmte Operationen, um Serverautorität und Sicherheit aufrechtzuerhalten.
+
+## Gemeinsame Skripte
+
+In einigen Fällen können Skripte Komponenten enthalten, die zwischen der Serverseite und der Clientseite geteilt werden. Diese gemeinsamen Skripte enthalten in der Regel Konfigurationseinstellungen und gemeinsame Funktionalitäten. Zum Beispiel kann ein gemeinsames Skript Einstellungen wie die Bewegungsgeschwindigkeit des Spielers oder Spielregeln definieren, die auf beiden Seiten konsistent sein müssen.
+
+Der Zweck gemeinsamer Skripte besteht darin, gemeinsamen Code zu zentralisieren und sicherzustellen, dass sowohl der Server als auch der Client Zugriff auf die gleichen Einstellungen und Funktionalitäten haben, ohne den Code zu duplizieren. Durch die Aufrechterhaltung getrennter gemeinsamer Skripte wird die Modularität gefördert und die Wartung vereinfacht.
+
+## Die Datei fxmanifest.lua
+
+Die `fxmanifest.lua`-Datei ist eine wichtige Komponente eines FiveM-Skripts. Sie enthält wichtige Informationen über das Skript und seine Abhängigkeiten. Hier ist ein Beispiel aus einem LKW-Job-Skript:
+
+```lua
+fx_version 'cerulean'
+game 'gta5'
+
+name "Trucker-Job"
+author 'Sukra, Ludaro'
+description 'Trucker-Job für esx'
+version '3.0'
+
+shared_scripts {
+	'config.lua'
+}
+
+client_scripts {
+	'client.lua'
+}
+
+server_scripts {
+	'server.lua'
+}
+```
+
+In diesem Beispiel gibt `fx_version` die Version des benötigten FiveM-Frameworks an. Das Feld `game` definiert das Ziel des Skripts.
+
+Der Name des
+
+ Skripts, der Autor, die Beschreibung und die Version geben zusätzliche Details über das Skript an.
+
+Der Abschnitt `shared_scripts` listet die gemeinsamen Skriptdateien auf, wie z. B. `config.lua`, die Konfigurationen und gemeinsame Funktionalitäten enthalten, die sowohl von der Server- als auch von der Clientseite verwendet werden.
+
+Der Abschnitt `client_scripts` listet die Skriptdateien auf, die spezifisch für die Clientseite sind.
+
+Der Abschnitt `server_scripts` listet die Skriptdateien auf, die spezifisch für die Serverseite sind.
+
+Durch das Studium der `fxmanifest.lua` könnt ihr die Struktur des Skripts und welche Teile für die Serverseite oder die Clientseite vorgesehen sind, verstehen.
+
+## GitHub und Markdown
+
+Um ein tieferes Verständnis dafür zu bekommen, wie Skripte erstellt und organisiert werden, könnt ihr Beispiele auf GitHub erkunden. GitHub-Repositories enthalten oft detaillierte Informationen über Skriptstruktur, Abhängigkeiten und Verwendungshinweise.
+
+Markdown-Dateien, wie die, die ihr gerade lest, werden häufig in Repositories verwendet, um Erklärungen, Anleitungen und andere Dokumentationen im Zusammenhang mit dem Skript bereitzustellen. Diese Dateien erleichtern das Verständnis der Konzepte und das Befolgen der Anweisungen.
+
+Indem ihr GitHub-Repositories und Markdown-Dateien erkundet, könnt ihr mehr über die Feinheiten der Skriptentwicklung erfahren und euer Verständnis für FiveM-Skripting vertiefen.

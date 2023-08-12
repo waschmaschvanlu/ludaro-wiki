@@ -1,6 +1,7 @@
 {
-  "index": "Home",
-  "lua-beginners": "Tipps for lua beginner",
+  "index": "Zuhause",
+  "lua-beginners": "Tipps für Lua Anfänger",
+  "fivem-coding": "FiveM Coding",
   "esx": "ESX-Coding",
   "qb": "QB-Coding",
   "nui": "NUI-Coding.",

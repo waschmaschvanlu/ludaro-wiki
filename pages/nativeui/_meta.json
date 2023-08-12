@@ -1,13 +1,14 @@
 {
-  "whatis": "what is NativeUI",
-  "howto": "How to use NativeUI",
-  "nor": "NativeUI or NativeUIReloaded?",
-  "wiki": "How does this wiki work?",
+  "whatis": "Was ist NativeUI?",
+  "howto": "Wie Benutzt NativeUI",
+  "nor": "NativeUI oder NativeUIReloaded?",
+  "history": "Geschichte von NativeUI👷", 
+  "wiki": "Wie ist diese Wiki aufgebaut?",
   "elements": "Elements",
-  "functions": "functions",
-  "items": "Items",
-  "panels": "Panels",
-  "menus": "Menus",
-  "extra": "Extras",
-  "usage": "Some Usage Examples"
+  "functions": "Functions👷",
+  "items": "Items👷",
+  "panels": "Panels👷",
+  "menus": "Menus👷",
+  "extra": "Extras👷",
+  "usage": "Funktionelle Beispiele // Wie Benutzt Man NativeUI²"
 }

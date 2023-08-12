@@ -1,0 +1,48 @@
+## Wie genau benutzt man DrawMarker? ## 
+Wir nehmen das beispiel auser cfx natives wiki.
+
+```lua
+CreateThread(function()
+	while true do
+		-- draw every frame
+		Wait(0)
+
+		local pedCoords = GetEntityCoords(PlayerPedId())
+		DrawMarker(2, pedCoords.x, pedCoords.y, pedCoords.z + 2, 0.0, 0.0, 0.0, 0.0, 180.0, 0.0, 2.0, 2.0, 2.0, 255, 128, 0, 50, false, true, 2, nil, nil, false)
+	end
+end)
+```
+zur genaueren erklärung: ein marker MUSS jede sekunde in einem thread geladen werden (wenn man im thread keine Wait(0) reinmacht dann crasht das game, also das bitte hinzufügen)
+
+Wenn man einen drawMarker nicht in einem thread hat, dann funktioniert das nicht!
+
+wenn du nicht weist was ein thread ist, schau einfach in [lua-beginner|Einführung zu Lua]
+
+im oberen beispiel zeichnet er einen marker an den pedcoords.x, pedcoords.y, pedcords.z + 2 (was die coordinaten vom spieler sind + 2 in der höhe)
+
+und danach werden die anderen variablen angegeben in dieser reihenfolge:
+rot = rotation = umdrehung
+```
+dirX: Die X-Komponente des Richtungsvektors für den Marker oder 0,0, um rotX/Y/Z zu verwenden.
+dirY: Die Y-Komponente des Richtungsvektors für den Marker oder 0,0, um rotX/Y/Z zu verwenden.
+dirZ: Die Z-Komponente des Richtungsvektors für den Marker oder 0,0, um rotX/Y/Z zu verwenden.
+rotX: Die X-Rotation für den Marker. Wird nur verwendet, wenn der Richtungsvektor 0,0 beträgt.
+rotY: Die Y-Rotation für den Marker. Wird nur verwendet, wenn der Richtungsvektor 0,0 beträgt.
+rotZ: Die Z-Rotation für den Marker. Wird nur verwendet, wenn der Richtungsvektor 0,0 beträgt.
+scaleX: Die Skalierung des Markers auf der X-Achse.
+scaleY: Die Skalierung des Markers auf der Y-Achse.
+scaleZ: Die Skalierung des Markers auf der Z-Achse.
+red: Die rote Komponente der Markerfarbe auf einer Skala von 0-255.
+grenm: Die grüne Komponente der Markerfarbe auf einer Skala von 0-255.
+blue: Die blaue Komponente der Markerfarbe auf einer Skala von 0-255.
+alpha: Die Alpha-Komponente der Markerfarbe auf einer Skala von 0-255.
+bobUpAndDown: Ob der Marker langsam auf und ab animiert werden soll oder nicht.
+faceCamera: Ob der Marker eine "Billboard"-Darstellung haben sollte, das heißt, ob er sich ständig zur Kamera ausrichten soll.
+p19: Normalerweise auf 2 gesetzt. Scheint nicht direkt relevant zu sein.
+rotate: Rotationen gelten nur für die Ausrichtung.
+textureDict: Ein Texturverzeichnis, mit dem der Marker gezeichnet werden soll, oder NULL. Beispiel: "GolfPutting"
+textureName: Ein Texturname in textureDict, mit dem der Marker gezeichnet werden soll, oder NULL. Beispiel: "PuttingMarker"
+drawOnEnts: Ob der Marker auf sich schneidenden Entitäten gezeichnet werden soll oder nicht.
+```
+[Quelle von Five-M Natives](https://docs.fivem.net/natives/?_0x28477EC23D892089)
+
