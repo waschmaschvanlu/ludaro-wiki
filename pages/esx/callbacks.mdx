@@ -1,0 +1,44 @@
+## Using Callbacks (ESX)
+
+In this section, I will explain how to use ESX callbacks through an example. Let's consider the scenario of creating a command for team chat (on the client-side, though it's possible on the server-side as well). This command should only be executable by the "Admin" group. Let's begin by creating the command named "teamchat" which will print "I can read team chat".
+
+```lua
+RegisterCommand("teamchat", function(source, args, rawCommand)
+    -- Insert our code here
+    print("I can read team chat")
+end)
+```
+
+If we execute /teamchat in the game, the message "I can read team chat" will appear in our F8 console, whether we are an admin or not. To query the player's group (note that group querying is possible only on the server-side), we need to create a callback on the server-side and send the information back to the client using a callback.
+
+Here's how you create the callback on the server-side (our callback is named "teamchat:getGroup"):
+
+```lua
+ESX.RegisterServerCallback('teamchat:getGroup', function(cb)
+    local _source = source -- Source is always passed and represents the player's ID executing the callback (client)
+    local xPlayer = ESX.GetPlayerFromId(_source) -- Fetch player data from ESX
+    local servergroup = xPlayer.getGroup() -- Define group
+    local servername = xPlayer.getName() -- Define player's name for later use
+    cb(servergroup, servername) -- Callback with group and name, sending these variables to the client
+end)
+```
+
+Now, let's revisit our command and integrate the callback on the client-side:
+
+```lua
+RegisterCommand("teamchat", function(source, args, rawCommand)
+    -- Insert our code here
+    ESX.TriggerServerCallback('teamchat:getGroup', function(clientgroup, clientname)
+        -- Include two variables, the names don't matter, only the order matters, as it's taken by the server
+        if clientgroup == "admin" then
+            -- If the group is admin
+            print("Hooray! " .. clientname .. ", you are now allowed to read team chat!")
+        else
+            -- Otherwise (if not admin)
+            print("Unfortunately, you don't have permission to read team chat. Your group: " .. clientgroup)
+        end
+    end)
+end)
+```
+
+The `else` statement denotes the end of the callback; variables `clientgroup` and `clientname` cannot be used outside of it.
