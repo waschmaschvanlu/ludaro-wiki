@@ -4,6 +4,11 @@
   "esx": "💛 ESX-Coding",
   "qb": "💖 QB-Coding",
   "nui": "🎨 NUI-Coding.",
-  "lua": "🤔 Lua-Coding Tips",
-  "nativeui": "📘 NativeUI-Wiki"
+  "lua": "🤔 Lua-Coding Tips (Advanced)",
+  "nativeui": "📘 NativeUI-Wiki",
+  "german_wiki": {
+    "title": "🇩🇪 Ludaro-Wiki (German/Deutsch)",
+    "href": "https://de-ludaro-wiki.vercel.app",
+    "newWindow": true
+  }
 }
