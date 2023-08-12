@@ -2,7 +2,7 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>Ludaro-Wiki(ENG)</span>,
+  logo: <span>Ludaro-Wiki</span>,
   project: {
     link: 'https://github.com/waschmaschvanlu/ludaro-wiki-nextra-english/tree/eng',
   },
@@ -10,7 +10,6 @@ const config: DocsThemeConfig = {
   footer: {
     text: 'Nextra Ludaro-Wiki',
   },
-  faviconGlyph: '📚',
 }
 
 export default config
