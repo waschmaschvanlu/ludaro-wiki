@@ -2,7 +2,7 @@
 
 
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+[**Live Demo →**](https://en-ludaro-wiki.vercel.app/lua-beginners/Introduction)
 
 For the german Version switch the branch to "de"
 ---------------------------------------------------------
