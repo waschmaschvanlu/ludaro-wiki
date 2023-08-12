@@ -4,6 +4,6 @@
 
 [**Live Demo →**](https://en-ludaro-wiki.vercel.app/lua-beginners/Introduction)
 
-For the german Version switch the branch to "de"
+Für die Deutsche Version die Branch zu "eng" ändern
 ---------------------------------------------------------
-Für die Deutsche Version Wechsle den Branch zu "de"
+For the english Version switch the branch to "en"
