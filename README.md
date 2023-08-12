@@ -1,8 +1,5 @@
 # Nextra Docs Ludaro
-
-
-
-[**Live Demo →**](https://en-ludaro-wiki.vercel.app/lua-beginners/Introduction)
+[**Live Demo →**](https://de-ludaro-wiki.vercel.app/lua-beginners/Introduction)
 
 Für die Englische Version die Branch zu "eng" ändern
 ---------------------------------------------------------
